@@ -1,0 +1,20 @@
+[project]
+name = "ai-skindoctor"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "NiranjanYadav-NY", email = "neirandranjan@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=1.15.0",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+ai-skindoctor = "ai_skindoctor:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
