@@ -35,6 +35,12 @@ uv run ai-skindoctor
 Open the local URL printed by Gradio (normally `http://127.0.0.1:7860`). You can
 also start the app with `uv run python main.py`.
 
+## Deploy to Vercel
+
+Import the GitHub repository into Vercel and set `GEMINI_API_KEY` in the
+project's environment variables. Keep the project root at the repository root;
+Vercel uses `main.py`, which exposes the Gradio interface as a FastAPI app.
+
 The microphone recording is transcribed locally. The image and/or video is sent
 to the Gemini API for analysis; uploaded video files are deleted from Gemini
 after the request. Do not submit media unless you have permission to share it.
