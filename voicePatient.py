@@ -1,6 +1,6 @@
 # Step1: Record audio from microphone
 
-# dependencies: ffmpeg, portaudio, pyaudio (commands available in description)
+# dependencies: ffmpeg, portaudio, pyaudio 
 import logging
 import speech_recognition as sr
 from pydub import AudioSegment
@@ -40,20 +40,23 @@ audio_filepath="patient_voice_test.mp3"
 
 
 # Step2: Convert audio to text
-from groq import Groq
+from faster_whisper import WhisperModel
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
+_model = None
 
 def transcribe_patient_voice(audio_filepath):
-    groq_api_key = os.environ.get("GROQ_API_KEY")
 
-    client = Groq(api_key=groq_api_key)
-    with open(audio_filepath, "rb") as audio_file:
-        transcription = client.audio.transcriptions.create(
-            file=audio_file,
-            model=os.environ.get("WHISPER_MODEL", "whisper-large-v3"),
+    global _model    
+
+    if _model is None:
+        _model = WhisperModel(
+            "base",
+            device="cpu",
+            compute_type="int8"
         )
 
-    return transcription.text
+    segments, _ = _model.transcribe(audio_filepath)
+    return " ".join(segment.text.strip() for segment in segments)
