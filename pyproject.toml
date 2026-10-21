@@ -9,7 +9,10 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "anthropic>=1.15.0",
+    "gradio>=6.30.0",
+    "pyaudio>=0.2.14",
     "python-dotenv>=1.2.4",
+    "requests>=2.34.2",
 ]
 
 [project.scripts]

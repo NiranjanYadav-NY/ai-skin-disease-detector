@@ -1,6 +1,8 @@
 #install and importing dependencies/libraries
-import anthropic 
+# import anthropic 
 import os
+import base64
+import requests
 from dotenv import load_dotenv
 
 #api keys and clients
@@ -15,7 +17,7 @@ folder  = os.path.dirname(__file__)
 image_path = os.path.join(folder, "dummy_img.png")
 
 with open(image_path,"rb") as file:
-    image_data = base64.b64encode(file.read{}).decode("utf-8")
+    image_data = base64.b64encode(image_file.read()).decode("utf-8")
 
 messages = [
     {

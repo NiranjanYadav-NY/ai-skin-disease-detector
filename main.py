@@ -2,10 +2,9 @@ from pathlib import Path
 
 import gradio as gr
 
-#from brain_of_the_doctor import brain_of_the_doctor
-from brain_of_the_doctor_groq import brain_of_the_doctor
-from voice_of_the_doctor import convert_text_to_doctor_audio
-from voice_of_the_patient import transcribe_patient_voice
+from doctorBrain import brain_of_the_doctor
+from voiceDoctor import convert_text_to_doctor_audio
+from voicePatient import transcribe_patient_voice
 
 
 APP_TITLE = "AI Skin Specialist"
