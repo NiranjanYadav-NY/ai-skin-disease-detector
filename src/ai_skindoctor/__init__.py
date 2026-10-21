@@ -1,2 +1,4 @@
 def main() -> None:
-    print("Hello from ai-skindoctor!")
+    from .app import main as launch
+
+    launch()
